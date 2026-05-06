@@ -1,0 +1,37 @@
+@import '../styles/variables';
+
+.page {
+  padding-bottom:1rem;
+  background-color: $secondary;
+  .title {
+    padding: 2rem;
+    text-align: center;
+    background-color: $background;
+  }
+  .app{
+    padding: 1rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    background-color: $light;
+    @media(min-width:768px){
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    div{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @media(min-width: 768px){
+        width:45%;
+      }
+    }
+    h2,h3,p{
+      margin:1rem;
+    }
+    a{
+      height: 10rem;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.5rem;
+  background: $tone url(../../public/background.webp)no-repeat center;
+  background-size: 25rem;
+  @media(min-width:768px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin: .25rem 0;
+    padding: .7rem 1rem;
+    background-color: rgba(96, 96, 96, 0.873);
+    border-radius: 2px;
+    color: #fff;
+    word-break: break-word;
+    @media(min-width: 768px){
+      width: 25rem;
+    }
+  }
+  svg {
+    margin: .7rem;
+    font-size: 1.5rem;
+  }
+  iframe {
+    box-shadow: 2px 2px 3px 3px rgba(113, 113, 113, 0.2);
+    @media(min-width:768px){
+      margin: .2rem 0;
+      width: 25rem;
+    }
+  }
+}

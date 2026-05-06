@@ -1,0 +1,149 @@
+@import '../../styles/variables';
+
+// mobile-first navigation, desktop styling included within selectors via scss
+.nav {
+  z-index: 1;
+  position:relative;
+  border-bottom: 1px $text solid;
+  background-color: $primary;
+  @media(min-width: 768px) {
+    display: flex;
+  }
+  // logo and hamburger
+  div {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    background-color: $primary;
+    a {
+      display: flex;
+      margin: .7rem;
+    }
+    .nav-toggle {
+      display: block;
+      padding: 2rem;
+      background-color: transparent;
+      border: none;
+      &.open{
+        :first-child {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }:last-child {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }:nth-child(2) {
+          opacity: 0;
+        }
+      }
+      span {
+        display: block;
+        width: 20px;
+        height: 4px;
+        margin: 4px 0;
+        background-color: $secondary;
+        transition: transform .3s ease-in-out;
+      }
+      @media (min-width: 768px){
+        display: none;
+      }
+    }
+  }
+  // navigation elements
+  > ul {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px $text solid;
+    background-color: $light;
+    list-style: none;
+    transition: transform 1s ease-in-out;
+    transform: translateY(0);
+    align-items: center;
+    >:hover , button:hover, li>:hover{
+        background-color: $light;
+      }
+    @media (min-width: 768px){
+      position: relative;
+      display: flex;
+      justify-content: right;
+      border-bottom:none;
+      background: $primary;
+    }
+    &.closed {
+      transform: translateY(-99.9%);
+      transition: transform ease-in-out 1s;
+      @media(min-width:768px){
+        transform: none;
+      }
+    }
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.3rem;
+      @media(min-width:768px){
+        height: 6rem;
+        width: 9.5rem;
+      }
+    } 
+    button {
+      position: relative;
+      width: 100%;
+      padding: 1.3rem;
+      background-color: $light;
+      @media(min-width:768px) {
+        height: 6rem;
+        width: 9.5rem;
+        background-color: $primary;
+      }
+    }
+    // call to action button in navbar
+    .cta{
+      background-color: $secondary;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      height: 5rem;
+      margin:  .5rem;
+      border: 2px solid gray;
+      @media(min-width:768px) {
+        border-radius: 3px;
+        transition-duration: 300ms;
+        &:hover{
+          transition-duration: 200ms;
+          background-color: $primary;
+          color: black;
+          border: 6px solid $secondary;
+        }
+      }
+    }
+    // dropdown items
+    ul {
+      display: none;
+      background-color: lightgrey;
+      @media(min-width: 768px){
+        z-index: -1;
+        position: absolute;
+        display: block;
+        left:0rem;
+        transition: transform .7s ease-in-out;
+        transform: translateY(-100%);
+      }
+      &.dropped{
+        display: block;
+        margin: 1.5rem 1rem 0 1rem ;
+        @media(min-width:768px){
+          margin: 2.3rem 0 0 0 ;
+          border-bottom: 2px solid $secondary;
+          transition: transform .7s ease-in-out;
+          transform: translateY(0%);
+        }
+      li {
+          margin: .1rem;
+          color: $light;
+          @media(min-width:768px){
+            margin:0;
+          }
+        }
+      }
+    }
+  }
+}

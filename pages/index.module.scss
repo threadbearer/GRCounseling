@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+.hero {
+  height: 500px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(../public/hero/home-m.webp);
+  @media(min-width:768px){
+    padding: 0 17vw;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: url(../public/hero/home.webp) top center no-repeat;
+  }
+  >div{
+    padding:2rem;
+    background-color: $background;
+    @media(min-width:768px){
+      display: flex;
+      flex-direction: column;
+      padding-top: 5rem;
+    }
+    p{
+    padding: 1.7rem 0;
+    font-weight: 500;
+    }
+  }
+}

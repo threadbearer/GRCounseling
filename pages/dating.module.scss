@@ -1,0 +1,60 @@
+@import '../styles/variables';
+
+.hero {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url(../public/hero/relationship.webp) center no-repeat;
+  background-size: contain;
+  text-align: center;
+  @media(min-width: 768px) {
+    height: 500px;
+  }
+  div {
+    padding: 2rem;
+    background-color: $background;
+  }
+}
+.page {
+  line-height: 2.5rem;
+  background-color: $light;
+  @media(min-width:768px){
+    padding: 5rem;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    @media(min-width: 768px){
+      flex-direction: row;
+    }
+    h2 {
+      padding: 1rem;
+      color: white;
+    }
+    div{
+      margin: 1rem;
+      border: 1px solid grey;
+      background-color: grey;
+      @media(min-width:768px){
+        width: 50%;
+        height: 20rem;
+      }
+    }
+    p, ul {
+      padding: 2rem;
+      display: grid;
+      background-color: $secondary;
+      color: white;
+      @media(min-width: 768px) {
+        padding: 2rem;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        white-space: nowrap;
+      }
+    }
+  }
+  p{
+    padding: 2rem 2rem 0;
+  }
+}

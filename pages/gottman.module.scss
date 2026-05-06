@@ -1,0 +1,73 @@
+@import '../styles/variables';
+
+.page{
+  line-height: 2.5rem;
+  background-color: grey;
+  .hero {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(../public/hero/gottman.webp) center no-repeat;
+    background-size: contain;
+    text-align: center;
+    @media(min-width: 768px) {
+      height: 500px;
+    }
+  }
+  >div{
+    padding: 1rem;
+    background-color: $primary;
+    @media(min-width:768px){
+      padding: 4rem 10rem 1rem;
+    }
+    h2{ 
+      padding: 2rem;
+      text-align: center;
+      background-color: $secondary;
+      color:white;
+      @media(min-width: 768px){
+        font-size: 2rem;
+      }
+    }
+    p{
+      padding: 2rem;
+      background-color: $light;
+      @media(min-width: 768px){
+        padding: 2rem;
+      }
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    @media(min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr ;
+      gap:2rem;
+    }
+    >div {
+      position: relative;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-self:center;
+      align-items: center;
+      background-color: darkgrey;
+      border: 2px solid $secondary;
+      h3 {
+        width: 100%;
+        padding: 1rem 2rem;
+      }
+      p{
+        height: 87%;
+      }
+      button{
+        margin: 1rem;
+        padding: 1rem;
+        background-color: $secondary;
+        color: white;
+      }
+    }
+  }
+}

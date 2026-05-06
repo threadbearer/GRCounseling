@@ -1,0 +1,46 @@
+@import '../styles/variables';
+
+.hero{
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:url(../public/hero/individual.webp) center no-repeat;
+  background-size: contain;
+  text-align: center;
+  @media(min-width: 768px){
+    height:500px;
+  } 
+  div {
+    padding: 2rem;
+    background-color: $background;
+  }
+}
+.page{
+  line-height: 2.5rem;
+  background-color: $light;
+  h2{
+    padding: 2rem;
+    background-color: $background;
+    text-align: center;
+  }
+  p{
+    padding: 2rem;
+    @media(min-width: 768px){
+      padding:5rem;
+    }
+  }
+  ul{
+    padding: 0rem 3rem 2rem;
+    background-color: $background;
+    list-style:disc;
+    @media(min-width: 768px){
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      li{
+        position: relative;
+        left: 33%;
+      }
+    }
+  }
+}

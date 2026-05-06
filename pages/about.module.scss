@@ -1,0 +1,78 @@
+@import '../styles/variables';
+
+.page{
+  background-color: $secondary;
+  .title{
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid $text;
+    background-color: $light;
+    h1{
+      font-weight: 500;
+    }
+  }
+  .split{
+    display: grid;
+    background-color: $primary;
+    @media(min-width: 768px){
+      grid-template-columns: 1fr 2fr;
+      margin:0 6rem;
+    }
+    .information{
+      text-align: center;
+      background-color: white;
+      .profile{
+        width: 100vw;
+        height: (100vw)*.67;
+        position: relative;
+        @media(min-width:768px){
+          width: 30rem;
+          height: 20rem;
+          margin: auto;
+        }
+      }
+      h3{
+        font-size: 2rem;
+        font-weight: 500;
+        padding: 2rem;
+        color: $secondary;
+      }
+      .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 1rem;
+      } 
+      img{
+        width: 11rem;
+        height: 3rem;
+      }
+      .gottman{
+        padding: 1rem 2rem;
+          p{
+            padding: 1rem 0;
+            text-align: left;
+          }
+      }
+      .credentials{
+        padding: 0 2rem;
+        li{
+          margin: 1rem 1rem;
+          text-align: left;
+        }
+      }
+    }
+    .intro{
+      line-height: 1.7rem;
+      padding:2rem;
+      @media(min-width: 768px){
+        padding:4rem;
+      }
+    }
+    h2{
+      margin: 1rem 0;
+    }
+    p{
+      padding:1rem;
+    }
+  }
+}
