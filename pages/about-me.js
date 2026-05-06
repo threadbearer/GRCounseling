@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import style from './about.module.scss'
 import generic from '../styles/generic.module.scss'
 import profile from 'public/gracePadilla.webp'
@@ -55,11 +56,9 @@ export default function About() {
               powerful online assessment that automatically scores a
               couple&apos;s strengths and challenges.
             </p>
-            <a href="./gottman-assessment">
-              <button className={generic.button}>
-                Find out more about the assessment.
-              </button>
-            </a>
+            <Link href="/gottman-checkUp" className={generic.button}>
+              Find out more about the assessment.
+            </Link>
           </div>
           <div className={style.credentials}>
             <h2>My credentials and affiliations:</h2>
@@ -86,9 +85,9 @@ export default function About() {
               </li>
             </ul>
             <div>
-              <a href="./appointment">
-                <button className={generic.button}>Book an appt with me</button>
-              </a>
+              <Link href="/appointment" className={generic.button}>
+                Book an appt with me
+              </Link>
             </div>
           </div>
           <p>

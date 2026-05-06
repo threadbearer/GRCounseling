@@ -5,7 +5,7 @@ import style from './Navbar.module.scss'
 
 function Dropdown({ title, items, closeMenu }) {
   // sub-menu state
-  const [dropped, setDropped] = useState(()=>{false});
+  const [dropped, setDropped] = useState(false);
 
   // handle sub-menu state and mouse interactifity
   const handleClick = () => {

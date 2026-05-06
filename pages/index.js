@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import style from './index.module.scss'
 import generic from '@/styles/generic.module.scss'
 
@@ -27,11 +28,11 @@ export default function Home() {
             </h1>
             <p >Free 20 minute consultation.</p>
             <div className={generic.blocks}>
-              <a href="./appointment" className={generic.button}>
+              <Link href="/appointment" className={generic.button}>
                 schedule <span className={generic["sr-only"]}>
                 a free 20 minute consultation.
                 </span>
-              </a>
+              </Link>
               <a href="tel:555-555-5555" className={generic.button}>
                 call <span className={generic["sr-only"]}> 
                 and speak with me.</span>

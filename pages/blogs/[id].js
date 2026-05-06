@@ -31,14 +31,13 @@ export default function Post({ postData }) {
             <Image className={style.cover} width={300} height={200} alt='' src={postData.image}/>
             <div className={style.article} dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
             <div className={generic.blocks}>
-            <a href="./appointment">
-              <button className={generic.button}>schedule</button>
-            </a>
-            <a href="tel:555-555-5555">
-              
-              <button className={generic.button}>call</button>
-            </a>
-          </div>
+              <Link href="/appointment" className={generic.button}>
+                schedule
+              </Link>
+              <a href="tel:555-555-5555" className={generic.button}>
+                call
+              </a>
+            </div>
         </div>
         </>
     );

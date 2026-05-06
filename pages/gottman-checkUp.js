@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from './gottman.module.scss'
 import generic from '../styles/generic.module.scss'
 
@@ -17,11 +18,9 @@ export default function Gottman(){
               Enhanced Gottman Relationship Checkup. Please click on the link
               below to schedule an appt:
             </p>
-            <a href="./appointment">
-              <button className={style.button}>
-                schedule an assessment
-              </button>
-            </a>
+            <Link href="/appointment" className={style.button}>
+              schedule an assessment
+            </Link>
           </div>
           <div>
             <h3>2. Create a private profile</h3>

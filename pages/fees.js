@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from './fees.module.scss'
 import generic from '../styles/generic.module.scss'
 
@@ -68,9 +69,9 @@ export default function Fees(){
           </div>
         </div>
         <div className={style.aside}>
-          <a href="./appointment" >
-            <button className={generic.button}>Schedule an appointment</button>
-          </a>
+          <Link href="/appointment" className={generic.button}>
+            Schedule an appointment
+          </Link>
           <h2>Teletherapy:</h2>
           <p>
             Telehealth therapy is an easy and convenient solution to receive

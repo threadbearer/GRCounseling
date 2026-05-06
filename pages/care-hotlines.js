@@ -19,8 +19,8 @@ export default function Hotlines(){
             211 connects you to a community resource advisor assisting with
             housing, food, work, and more...
           </p>
-          <a href="https://www.211la.org/">
-            <button className={generic.link}>Visit 211la.org</button>
+          <a href="https://www.211la.org/" className={generic.link}>
+            Visit 211la.org
           </a>
         </div>
         <div>
@@ -48,10 +48,8 @@ export default function Hotlines(){
             The National Suicide Lifeline provides free and confidential support
             for people in distress and prevention & crisis resources
           </p>
-          <a href="https://suicidepreventionlifeline.org/">
-            <button className={generic.link}>
-              Visit suicidepreventionlifeline.org
-            </button>
+          <a href="https://suicidepreventionlifeline.org/" className={generic.link}>
+            Visit suicidepreventionlifeline.org
           </a>
         </div>
         <div>
@@ -67,8 +65,8 @@ export default function Hotlines(){
             contact your call is directed to Didi Hirsch&apos;s Suicide
             Prevention Center.
           </p>
-          <a href="https://teenlineonline.org/talk-now/">
-            <button className={generic.link}>Visit teenlineonline.org</button>
+          <a href="https://teenlineonline.org/talk-now/" className={generic.link}>
+            Visit teenlineonline.org
           </a>
         </div>
       </div>

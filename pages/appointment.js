@@ -40,70 +40,77 @@ export default function Appointment() {
         action="https://script.google.com/macros/s/YOUR_APPS_SCRIPT_ID/exec"
         name="google-sheet"
         onSubmit={handleSubmit}>
-        <h2>
-          We look forward to connecting with you!
-        </h2>
-        <div className={style.grid}>
-          <label htmlFor="name">
-            What may I call you?
-            <input type="text" id="name" name="name" placeholder="name" />
-          </label>
-          <label htmlFor="name">
-            Can I have your Email?
-            <input type="email" name="email" placeholder="e-mail" />
-          </label>
-          <label htmlFor="name">
-            Or a Phone Number?
-            <input type="tel" name="phone" placeholder="(000) 000-0000" />
-          </label>
-          <label htmlFor="message">
-            Would you like to leave a short message for me?
-            <textarea
-              maxLength="300"
-              id="message"
-              name="message"
-              placeholder="messsage">
-            </textarea>
-          </label>
+        <div className="form-elements" style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <h2>
+            We look forward to connecting with you!
+          </h2>
+          <div className={style.grid}>
+            <label htmlFor="name">
+              What may I call you?
+              <input type="text" id="name" name="name" placeholder="name" required />
+            </label>
+            <label htmlFor="email">
+              Can I have your Email?
+              <input type="email" id="email" name="email" placeholder="e-mail" required />
+            </label>
+            <label htmlFor="phone">
+              Or a Phone Number?
+              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" />
+            </label>
+            <label htmlFor="message">
+              Would you like to leave a short message for me?
+              <textarea
+                maxLength="300"
+                id="message"
+                name="message"
+                placeholder="message">
+              </textarea>
+            </label>
+          </div>
+          <fieldset>
+            <legend>
+              <p>Counseling Preference:</p>
+            </legend>
+            <label htmlFor="type--notsure" style={{ flexDirection: "row", alignItems: "center", gap: "0.5rem" }}>
+              <input
+                id="type--notsure"
+                type="radio"
+                name="type"
+                value="not sure"
+                defaultChecked
+              /> 
+              I&apos;m not sure.
+            </label>
+            <label htmlFor="type--individual" style={{ flexDirection: "row", alignItems: "center", gap: "0.5rem" }}> 
+              <input
+                id="type--individual"
+                type="radio"
+                name="type"
+                value="individual"
+              /> 
+              Individual
+            </label>
+            <label htmlFor="type--couplescounseling" style={{ flexDirection: "row", alignItems: "center", gap: "0.5rem" }}>
+              <input
+                id="type--couplescounseling"
+                type="radio"
+                name="type"
+                value="couples"
+              />
+              Couples Counseling
+            </label>
+          </fieldset>
+          <button
+            className={generic.button}
+            style={{ marginTop: "2rem" }}
+          >
+            {loading ? "Sent!" : "Send Message"}
+          </button>
         </div>
-        <fieldset>
-          <legend>
-            <p>Counseling Preference:</p>
-          </legend>
-          <label htmlFor="type--notsure">
-            <input
-              id="type--notsure"
-              type="radio"
-              name="type"
-              value="not sure"
-              defaultChecked
-            /> 
-            I&apos;m not sure.
-          </label>
-          <label htmlFor="type--individual"> 
-            <input
-              id="type--individual"
-              type="radio"
-              name="type"
-              value="individual"
-            /> 
-            Individual
-          </label>
-          <label htmlFor="type--couplescounseling">
-            <input
-              id="type--couplescounseling"
-              type="radio"
-              name="type"
-              value="couples"
-            />
-            Couples Counseling
-          </label>
-        </fieldset>
-        <button
-          className={generic.button}
-          value={loading ? "Loading..." : "Request My Schedule"}>
-          {loading ? "Sent!" : "Send Message"}
-        </button>
+        <div className="thankyou_message" style={{ display: "none", textAlign: "center", padding: "2rem" }}>
+          <h2>Thank You!</h2>
+          <p>Your message has been submitted successfully. We look forward to speaking with you!</p>
+        </div>
       </form>
     </main>
   )

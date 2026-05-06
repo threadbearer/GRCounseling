@@ -66,7 +66,7 @@ export default function NavBar() {
           <Link href="/blogs">Blogs</Link>
         </li>
         <li onClick={closeMenu}>
-          <Link className={`${style["cta"]}`} href="appointment">
+          <Link className={`${style["cta"]}`} href="/appointment">
             Schedule Appointment
           </Link>
         </li>

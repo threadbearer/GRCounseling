@@ -1,3 +1,4 @@
+import Link from "next/link";
 import style from './couples.module.scss'
 import generic from '../styles/generic.module.scss'
 
@@ -38,7 +39,7 @@ export default function Marriage(){
           life changes such as getting married, starting a family, or
           infidelity. Couples therapy is also a good idea if someone in the
           relationship is coping with an issue that might be affecting the unit
-          or simply if you`&apos;`re feeling stuck and stagnant in your
+          or simply if you&apos;re feeling stuck and stagnant in your
           relationship. Therapy can be a critical factor when helping a couple
           navigate the immense amount of emotions that they experience as their
           relationship changes and grows. I work with my clients to create
@@ -53,11 +54,11 @@ export default function Marriage(){
           forward to meeting with you.
         </p>
         <div className={generic.blocks}>
-          <a href="./appointment">
-            <button className={generic.button}>schedule</button>
-          </a>
-          <a href="tel:555-555-5555">
-            <button className={generic.button}>call</button>
+          <Link href="/appointment" className={generic.button}>
+            schedule
+          </Link>
+          <a href="tel:555-555-5555" className={generic.button}>
+            call
           </a>
         </div>
       </div>
