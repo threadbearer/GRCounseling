@@ -18,23 +18,23 @@ export default function Home() {
       <main id="main">
         <div className={style.hero}>
           <div>
-            <p aria-hidden="true">
-              California | L.A.| Online
+            <p className={style.location} aria-hidden="true">
+              California · L.A. · Online
             </p>
             <h1>
-              Therapy & <br /> Couples Counseling. <span className={generic['sr-only']}>
+              Therapy &amp; <br /> Couples Counseling. <span className={generic['sr-only']}>
               Located in Pasadena, California. Remote counseling is available.
             </span>
             </h1>
-            <p >Free 20 minute consultation.</p>
-            <div className={generic.blocks}>
-              <Link href="/appointment" className={generic.button}>
-                schedule <span className={generic["sr-only"]}>
+            <p className={style.tagline}>Free 20 minute consultation.</p>
+            <div className={style.heroButtons}>
+              <Link href="/appointment">
+                Schedule <span className={generic["sr-only"]}>
                 a free 20 minute consultation.
                 </span>
               </Link>
-              <a href="tel:555-555-5555" className={generic.button}>
-                call <span className={generic["sr-only"]}> 
+              <a href="tel:555-555-5555">
+                Call <span className={generic["sr-only"]}> 
                 and speak with me.</span>
               </a>
             </div>

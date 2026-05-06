@@ -1,45 +1,94 @@
 @import '../styles/variables';
 
-.hero{
-  height: 160px;
+.hero {
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background:url(../public/hero/individual.webp) center no-repeat;
-  background-size: contain;
-  text-align: center;
-  @media(min-width: 768px){
-    height:500px;
-  } 
+  align-items: center;
+  position: relative;
+  background: url(../public/hero/individual.webp) center no-repeat;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(44, 62, 61, 0.65) 0%,
+      rgba(44, 62, 61, 0.45) 100%
+    );
+  }
+
+  @media(min-width: 768px) {
+    height: 420px;
+  }
+
   div {
-    padding: 2rem;
-    background-color: $background;
-  }
-}
-.page{
-  line-height: 2.5rem;
-  background-color: $light;
-  h2{
-    padding: 2rem;
-    background-color: $background;
+    position: relative;
+    z-index: 1;
     text-align: center;
-  }
-  p{
-    padding: 2rem;
-    @media(min-width: 768px){
-      padding:5rem;
+
+    h1 {
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
   }
-  ul{
-    padding: 0rem 3rem 2rem;
-    background-color: $background;
-    list-style:disc;
-    @media(min-width: 768px){
-      display: grid;
+}
+
+.page {
+  background-color: $light;
+  max-width: $container-xl;
+  margin: 0 auto;
+  padding: $space-lg;
+
+  @media(min-width: 768px) {
+    padding: $space-xl $space-2xl;
+  }
+
+  h2 {
+    text-align: center;
+    color: $secondary;
+    padding: $space-md 0;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 0 $space-md;
+    line-height: 1.85;
+    color: $text;
+  }
+
+  ul {
+    padding: $space-md $space-lg;
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: $space-lg;
+
+    @media(min-width: 768px) {
       grid-template-columns: 1fr 1fr 1fr;
-      li{
-        position: relative;
-        left: 33%;
+      max-width: 900px;
+      margin: 0 auto $space-lg;
+    }
+
+    li {
+      padding: 0.6rem $space-sm;
+      background-color: $surface;
+      border-radius: $radius-sm;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $text;
+      border: 1px solid $border;
+      border-left: 3px solid $accent;
+      transition: background-color $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+
+      &:hover {
+        background-color: $primary;
+        transform: translateX(4px);
+        box-shadow: $shadow-sm;
       }
     }
   }

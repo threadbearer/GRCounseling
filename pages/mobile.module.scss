@@ -1,37 +1,78 @@
 @import '../styles/variables';
 
 .page {
-  padding-bottom:1rem;
-  background-color: $secondary;
+  background-color: $light;
+
   .title {
-    padding: 2rem;
+    padding: $space-xl $space-lg;
     text-align: center;
-    background-color: $background;
+    background-color: $primary;
+    border-bottom: 1px solid $border;
+
+    h1 {
+      color: $text;
+    }
   }
-  .app{
-    padding: 1rem;
-    margin: 2rem;
+
+  .app {
+    max-width: $container-xl;
+    margin: $space-lg auto;
+    padding: $space-lg;
     display: flex;
     flex-direction: column;
-    border-radius: .5rem;
-    background-color: $light;
-    @media(min-width:768px){
-      flex-direction: row;
-      justify-content: space-evenly;
+    background-color: $surface;
+    border-radius: $radius-md;
+    border: 1px solid $border;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    transition: box-shadow $transition-base;
+
+    &:hover {
+      box-shadow: $shadow-md;
     }
-    div{
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      gap: $space-xl;
+      margin: $space-lg auto;
+      padding: $space-xl;
+    }
+
+    div {
       position: relative;
       display: flex;
       flex-direction: column;
-      @media(min-width: 768px){
-        width:45%;
+
+      @media(min-width: 768px) {
+        width: 50%;
       }
     }
-    h2,h3,p{
-      margin:1rem;
+
+    h2 {
+      font-size: 1.5rem;
+      color: $secondary;
+      margin: $space-sm 0 0;
     }
-    a{
-      height: 10rem;
+
+    h3 {
+      font-size: 1rem;
+      color: $accent;
+      font-weight: 500;
+      margin: $space-xs 0;
+    }
+
+    p {
+      margin: $space-sm 0;
+      line-height: 1.7;
+      color: $text;
+      font-size: 0.95rem;
+    }
+
+    a {
+      height: 12rem;
+      border-radius: $radius-md;
+      overflow: hidden;
     }
   }
 }

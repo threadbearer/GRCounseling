@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./Navbar.module.scss";
 import logo from "../../public/icons/logo.webp";
 import Dropdown from "./Dropdown";
@@ -9,12 +9,21 @@ import { subpages } from "./subpages";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   const menuToggle = ()=> {setOpen(!open)}
   const closeMenu = ()=> {setOpen(false)}
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className={style.nav}>
+    <nav className={`${style.nav} ${scrolled ? style.scrolled : ""}`}>
       <div>
         <Link href="/" onClick={closeMenu}>
           <Image src={logo} alt="home" width={75} />
@@ -22,12 +31,14 @@ export default function NavBar() {
         <button
           className={`${style["nav-toggle"]} ${open ? style["open"] : ""}`}
           onClick={menuToggle}
+          aria-label="Toggle navigation menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
+      {open && <div className={style.overlay} onClick={closeMenu} />}
       <ul className={`${!open && style["closed"]}`}>
         <li onClick={closeMenu}>
           <Link href="/">Home</Link>

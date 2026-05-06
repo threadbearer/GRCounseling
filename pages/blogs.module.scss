@@ -1,57 +1,106 @@
 @import '../styles/variables';
 
-.page{
-    padding: 1rem;
-    background-color: $light;
-    @media(min-width: 768px){
-        padding: 3rem 10rem;
-        text-align: left;
+.page {
+  background-color: $light;
+  padding: $space-lg;
+
+  @media(min-width: 768px) {
+    padding: $space-xl $space-2xl;
+    max-width: $container-xl;
+    margin: 0 auto;
+  }
+
+  h2 {
+    padding: $space-sm 0 $space-lg;
+    font-size: 2.25rem;
+    text-align: center;
+    color: $text;
+
+    @media (min-width: 768px) {
+      margin-bottom: $space-lg;
     }
-    h2{
-        padding: 1rem;
-        font-size: 2.5rem;
-        text-align: center;
-        @media (min-width: 768px){
-            margin-bottom: 3rem;
-        }
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: $secondary;
+  }
+
+  ul {
+    display: grid;
+    gap: $space-md;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
     }
-    h3{
-        font-size: 1.5rem;
-    }
-    ul{
-        @media (min-width:768px){
-            display:grid;
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-    .cover {
-        float: left;
-        margin: 1.5rem;
-    }
-    .article{
-        margin: 1rem;
-        font-size: 1.1rem;
-        line-height: 1.5rem;
-    }
+  }
+
+  .cover {
+    float: left;
+    margin: $space-md;
+    border-radius: $radius-md;
+  }
+
+  .article {
+    margin: $space-sm;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
 }
-.blog-link{
+
+.blog-link {
+  display: flex;
+  flex-direction: column;
+  background-color: $surface;
+  border-radius: $radius-md;
+  border: 1px solid $border;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base, transform $transition-base;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+
+    img {
+      transform: scale(1.03);
+    }
+  }
+
+  img {
+    transition: transform $transition-slow;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+    align-items: stretch;
+
+    img {
+      width: 280px;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  div {
+    padding: $space-md;
     display: flex;
     flex-direction: column;
-    padding-top: 1.5rem;
-    margin: 1rem;
-    background-color: white;
-    align-items: center;
-    box-shadow: 2px 2px 3px 2px gray;
-    @media(min-width: 768px){
-        padding: 1rem;
-        gap: 2rem;
-        flex-direction: row;
-        align-items:flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+
+    p {
+      font-size: 0.82rem;
+      color: $text-muted;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    div{
-        padding:1.5rem;
-        @media (min-width: 768px){
-            padding: 0;
-        }
+
+    h3 {
+      line-height: 1.35;
     }
+  }
 }

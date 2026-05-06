@@ -1,46 +1,112 @@
 @import '../styles/variables';
 
 .page {
-  line-height: 2rem;
-  background-color: $primary;
+  background-color: $light;
+
   .title {
-    padding: 2rem;
+    padding: $space-xl $space-lg;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    position: relative;
     background: url(../public/hero/fees.webp) center no-repeat;
     background-size: cover;
-    text-align: center;
+    min-height: 200px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(44, 62, 61, 0.6) 0%,
+        rgba(44, 62, 61, 0.4) 100%
+      );
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
   }
-  >div{
-    @media(min-width:768px){
+
+  > div:nth-child(2) {
+    max-width: $container-xl;
+    margin: 0 auto;
+
+    @media(min-width: 768px) {
       display: flex;
       flex-direction: row-reverse;
     }
-    >div{
-      >div{
-        padding:2rem;
-        @media(min-width: 768px){
-          padding: 3rem 3rem 3rem 5rem;
+
+    > div {
+      > div {
+        padding: $space-lg;
+
+        @media(min-width: 768px) {
+          padding: $space-xl;
         }
       }
-      h2{
-        margin: 2rem 0 1rem;
+
+      h2 {
+        font-size: 1.4rem;
+        color: $secondary;
+        margin-bottom: $space-sm;
+        padding-top: $space-sm;
       }
-      h3{
-        margin: 1rem 0 0;
-        font-size: 1rem;
+
+      h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-top: $space-sm;
+        color: $accent;
+      }
+
+      h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-top: $space-sm;
+        color: $text;
+      }
+
+      p {
+        line-height: 1.75;
+        color: $text;
+        margin-bottom: 0.5rem;
       }
     }
-    .top{
-      background-color: $light;
+
+    .top {
+      background-color: $surface;
+      border-bottom: 1px solid $border;
+
+      > div {
+        &:first-child {
+          border-bottom: 1px solid $border;
+        }
+      }
     }
-    .aside{
-      padding: 2rem;
-      background-color: $tone;
-      @media(min-width:768px) {
-        padding: 3rem;
+
+    .aside {
+      padding: $space-lg;
+      background-color: $primary;
+      border-radius: 0;
+
+      @media(min-width: 768px) {
         width: 40%;
+        min-width: 360px;
+        border-left: 1px solid $border;
+      }
+
+      h2 {
+        margin-top: $space-md;
+      }
+
+      p {
+        line-height: 1.75;
       }
     }
   }

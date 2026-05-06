@@ -1,34 +1,129 @@
 @import './variables';
-.blocks{
+
+.blocks {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  @media(min-width: 768px){
-    gap: 1rem;
+  padding: $space-sm;
+  gap: $space-sm;
+  @media(min-width: 768px) {
     width: 100%;
     flex-direction: row;
     justify-content: center;
   }
 }
-.button{
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: $secondary;
   color: #fff;
-  margin: 1rem 0 0;
-  padding: 1rem;
+  padding: 1rem 2rem;
   width: 100%;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
   text-transform: capitalize;
-  @media(min-width: 768px){
-    min-width: 10rem;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  &:hover {
+    background-color: lighten($secondary, 8%);
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+  @media(min-width: 768px) {
+    min-width: 12rem;
+    width: auto;
   }
 }
-.link{
-  margin: 1rem 0;
-  padding: 1rem;
+
+.buttonOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: $secondary;
+  padding: 1rem 2rem;
   width: 100%;
-  @media(min-width: 768px){
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  border: 2px solid $secondary;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  &:hover {
+    background-color: $secondary;
+    color: #fff;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  @media(min-width: 768px) {
+    min-width: 12rem;
+    width: auto;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  color: $accent;
+  padding: $space-sm;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color $transition-fast;
+  &:hover {
+    color: darken($accent, 12%);
+  }
+  @media(min-width: 768px) {
     width: 100%;
+  }
+}
+
+// Page title bar shared style
+.pageTitle {
+  padding: $space-xl $space-lg;
+  text-align: center;
+  background-color: $primary;
+  border-bottom: 1px solid $border;
+  h1 {
+    font-weight: 600;
+    color: $text;
+  }
+}
+
+// Page content wrapper
+.pageContent {
+  max-width: $container-xl;
+  margin: 0 auto;
+  padding: $space-lg;
+  @media(min-width: 768px) {
+    padding: $space-xl $space-2xl;
+  }
+}
+
+// Card style
+.card {
+  background-color: $surface;
+  border-radius: $radius-md;
+  padding: $space-lg;
+  box-shadow: $shadow-sm;
+  border: 1px solid $border;
+  transition: box-shadow $transition-base, transform $transition-base;
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-3px);
   }
 }
 

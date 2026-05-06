@@ -2,31 +2,119 @@
 
 :root {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
+
 *, img {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-body {
-  background-color: $secondary;
+
+::selection {
+  background-color: $tone;
+  color: $text;
 }
+
+body {
+  background-color: $light;
+  color: $text;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-a,
-button {
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.25;
+  color: $text;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+  @media(min-width: 768px) {
+    font-size: 3.25rem;
+  }
+}
+
+h2 {
+  font-size: 1.75rem;
+  @media(min-width: 768px) {
+    font-size: 2.25rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  @media(min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  line-height: 1.75;
+  color: $text;
+}
+
+a, button {
   color: $text;
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
+  transition: color $transition-fast, background-color $transition-fast, box-shadow $transition-fast, transform $transition-fast;
 }
-ul{
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 3px;
+  border-radius: $radius-sm;
+}
+
+ul {
   list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Scroll-reveal animation keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

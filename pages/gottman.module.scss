@@ -1,73 +1,130 @@
 @import '../styles/variables';
 
-.page{
-  line-height: 2.5rem;
-  background-color: grey;
+.page {
+  background-color: $light;
+
   .hero {
-    height: 160px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    position: relative;
     background: url(../public/hero/gottman.webp) center no-repeat;
-    background-size: contain;
-    text-align: center;
+    background-size: cover;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(44, 62, 61, 0.65) 0%,
+        rgba(44, 62, 61, 0.45) 100%
+      );
+    }
+
     @media(min-width: 768px) {
-      height: 500px;
+      height: 420px;
     }
-  }
-  >div{
-    padding: 1rem;
-    background-color: $primary;
-    @media(min-width:768px){
-      padding: 4rem 10rem 1rem;
-    }
-    h2{ 
-      padding: 2rem;
-      text-align: center;
-      background-color: $secondary;
-      color:white;
-      @media(min-width: 768px){
-        font-size: 2rem;
-      }
-    }
-    p{
-      padding: 2rem;
-      background-color: $light;
-      @media(min-width: 768px){
-        padding: 2rem;
-      }
-    }
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    @media(min-width: 768px) {
-      display: grid;
-      grid-template-columns: 1fr 1fr ;
-      gap:2rem;
-    }
-    >div {
+
+    h1 {
       position: relative;
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-self:center;
-      align-items: center;
-      background-color: darkgrey;
-      border: 2px solid $secondary;
+      z-index: 1;
+      color: white;
+    }
+  }
+
+  > div:nth-child(2) {
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: $space-lg;
+
+    @media(min-width: 768px) {
+      padding: $space-xl $space-2xl;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      color: $secondary;
+      margin-bottom: $space-lg;
+    }
+  }
+
+  .container {
+    display: grid;
+    gap: $space-md;
+
+    @media(min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      gap: $space-lg;
+    }
+
+    > div {
+      background-color: $surface;
+      border-radius: $radius-md;
+      border: 1px solid $border;
+      box-shadow: $shadow-sm;
+      overflow: hidden;
+      transition: box-shadow $transition-base, transform $transition-base;
+
+      &:hover {
+        box-shadow: $shadow-md;
+        transform: translateY(-3px);
+      }
+
       h3 {
-        width: 100%;
-        padding: 1rem 2rem;
-      }
-      p{
-        height: 87%;
-      }
-      button{
-        margin: 1rem;
-        padding: 1rem;
+        padding: $space-md $space-lg;
+        font-size: 1.15rem;
+        color: $surface;
         background-color: $secondary;
-        color: white;
       }
+
+      p {
+        padding: $space-md $space-lg;
+        line-height: 1.75;
+        color: $text;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: $space-sm $space-lg $space-lg;
+    padding: 0.85rem $space-lg;
+    background-color: $accent;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: $radius-md;
+    text-transform: capitalize;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: darken($accent, 8%);
+      box-shadow: $shadow-md;
+      transform: translateY(-2px);
+    }
+  }
+
+  > div:last-child {
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 0 $space-lg $space-xl;
+
+    @media(min-width: 768px) {
+      padding: 0 $space-2xl $space-2xl;
+    }
+
+    p {
+      line-height: 1.85;
+      color: $text;
+      padding: 0 0 $space-md;
+      max-width: 800px;
     }
   }
 }

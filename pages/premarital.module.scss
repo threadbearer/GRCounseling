@@ -1,58 +1,114 @@
 @import '../styles/variables';
 
 .hero {
-  height: 160px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  position: relative;
   background: url(../public/hero/premarital.webp) center no-repeat;
-  background-size: contain;
-  text-align: center;
-  @media(min-width: 768px) {
-    height: 500px;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(44, 62, 61, 0.65) 0%,
+      rgba(44, 62, 61, 0.45) 100%
+    );
   }
+
+  @media(min-width: 768px) {
+    height: 420px;
+  }
+
   div {
-    padding: 2rem;
-    background-color: $background;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    h1 {
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
   }
 }
+
 .page {
-  line-height: 2.5rem;
   background-color: $light;
-  @media(min-width:768px) {
-    padding: 2rem 5rem;
+  max-width: $container-xl;
+  margin: 0 auto;
+  padding: $space-lg;
+
+  @media(min-width: 768px) {
+    padding: $space-xl $space-2xl;
   }
+
   .container {
     display: flex;
     flex-direction: column;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+
     @media(min-width: 768px) {
       flex-direction: row;
+      gap: $space-lg;
     }
+
     h2 {
-      padding: 1rem 2rem;
-      color: white;
+      color: $secondary;
+      padding: $space-sm $space-md;
+      font-size: 1.35rem;
     }
-    >div {
-      margin: 1rem;
-      border: 1px solid grey;
-      background-color: grey;
-      @media(min-width:768px) {
-        width: 100%;
-      }
+
+    > div {
+      background-color: $surface;
+      border-radius: $radius-md;
+      border: 1px solid $border;
+      box-shadow: $shadow-sm;
+      overflow: hidden;
+      flex: 1;
     }
-    p,ul {
-      padding: 2rem;
+
+    ul {
+      padding: $space-md $space-lg;
       display: grid;
-      background-color: $secondary;
-      color: white;
+      gap: 0.5rem;
+
       @media(min-width: 768px) {
-        padding: 2rem;
-        grid-template-columns: 1fr 1fr 1fr;
-        white-space: nowrap;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      li {
+        padding: 0.6rem $space-sm;
+        background-color: $primary;
+        border-radius: $radius-sm;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $text;
+        border-left: 3px solid $accent;
+        transition: background-color $transition-fast, transform $transition-fast;
+
+        &:hover {
+          background-color: $tone;
+          transform: translateX(4px);
+        }
       }
     }
   }
-  h2, p{
-    padding: 2rem 2rem 0;
+
+  h2 {
+    color: $secondary;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    padding: 0 0 $space-md;
+    line-height: 1.85;
+    color: $text;
+    max-width: 800px;
   }
 }

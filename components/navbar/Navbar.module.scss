@@ -1,149 +1,266 @@
 @import '../../styles/variables';
 
-// mobile-first navigation, desktop styling included within selectors via scss
 .nav {
-  z-index: 1;
-  position:relative;
-  border-bottom: 1px $text solid;
+  z-index: 100;
+  position: sticky;
+  top: 0;
   background-color: $primary;
+  transition: background-color $transition-base, box-shadow $transition-base, backdrop-filter $transition-base;
+
+  &.scrolled {
+    background-color: rgba(245, 237, 228, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: $shadow-sm;
+  }
+
   @media(min-width: 768px) {
     display: flex;
   }
+
   // logo and hamburger
-  div {
-    z-index: 1;
+  div:first-child {
+    z-index: 101;
     display: flex;
     justify-content: space-between;
-    background-color: $primary;
+    align-items: center;
+    background-color: transparent;
+
     a {
       display: flex;
-      margin: .7rem;
+      padding: 0.5rem 0.7rem;
+      transition: opacity $transition-fast;
+      &:hover {
+        opacity: 0.8;
+      }
     }
+
     .nav-toggle {
       display: block;
-      padding: 2rem;
+      padding: 1.75rem;
       background-color: transparent;
       border: none;
-      &.open{
+
+      &.open {
         :first-child {
           transform: rotate(-45deg) translate(-5px, 6px);
-        }:last-child {
+        }
+        :last-child {
           transform: rotate(45deg) translate(-5px, -6px);
-        }:nth-child(2) {
+        }
+        :nth-child(2) {
           opacity: 0;
+          transform: scaleX(0);
         }
       }
+
       span {
         display: block;
-        width: 20px;
-        height: 4px;
-        margin: 4px 0;
+        width: 22px;
+        height: 2px;
+        margin: 5px 0;
         background-color: $secondary;
-        transition: transform .3s ease-in-out;
+        border-radius: 2px;
+        transition: transform $transition-base, opacity $transition-base;
       }
-      @media (min-width: 768px){
+
+      @media (min-width: 768px) {
         display: none;
       }
     }
   }
+
+  // Mobile overlay backdrop
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 98;
+    animation: fadeIn $transition-fast forwards;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
   // navigation elements
   > ul {
-    z-index: -1;
+    z-index: 99;
     position: absolute;
     width: 100%;
-    border-bottom: 1px $text solid;
     background-color: $light;
     list-style: none;
-    transition: transform 1s ease-in-out;
+    transition: transform $transition-slow, opacity $transition-base;
     transform: translateY(0);
+    opacity: 1;
     align-items: center;
-    >:hover , button:hover, li>:hover{
-        background-color: $light;
-      }
-    @media (min-width: 768px){
+    box-shadow: $shadow-lg;
+
+    > li:hover > a,
+    > li:hover > button {
+      color: $accent;
+    }
+
+    @media (min-width: 768px) {
       position: relative;
       display: flex;
-      justify-content: right;
-      border-bottom:none;
-      background: $primary;
+      justify-content: flex-end;
+      background: transparent;
+      box-shadow: none;
     }
+
     &.closed {
-      transform: translateY(-99.9%);
-      transition: transform ease-in-out 1s;
-      @media(min-width:768px){
+      transform: translateY(-110%);
+      opacity: 0;
+      transition: transform $transition-slow, opacity $transition-base;
+      @media(min-width:768px) {
         transform: none;
+        opacity: 1;
       }
     }
+
+    // Nav links
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1.3rem;
-      @media(min-width:768px){
-        height: 6rem;
-        width: 9.5rem;
+      padding: 1.1rem 1.2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      position: relative;
+      transition: color $transition-fast;
+
+      @media(min-width:768px) {
+        height: 5rem;
+        padding: 0 1rem;
+
+        // Underline animation on hover
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 1rem;
+          left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          width: 60%;
+          height: 2px;
+          background-color: $accent;
+          border-radius: 1px;
+          transition: transform $transition-base;
+        }
+        &:hover::after {
+          transform: translateX(-50%) scaleX(1);
+        }
       }
-    } 
+    }
+
+    // Dropdown buttons
     button {
       position: relative;
       width: 100%;
-      padding: 1.3rem;
-      background-color: $light;
+      padding: 1.1rem 1.2rem;
+      background-color: transparent;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: color $transition-fast;
+
       @media(min-width:768px) {
-        height: 6rem;
-        width: 9.5rem;
-        background-color: $primary;
+        height: 5rem;
+        width: auto;
+        padding: 0 1rem;
+      }
+
+      &:hover {
+        color: $accent;
       }
     }
-    // call to action button in navbar
-    .cta{
+
+    // CTA button
+    .cta {
       background-color: $secondary;
       text-align: center;
       color: white;
-      font-weight: 700;
-      height: 5rem;
-      margin:  .5rem;
-      border: 2px solid gray;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.9rem 1.5rem;
+      margin: 0.75rem;
+      border-radius: $radius-md;
+      transition: all $transition-base;
+
       @media(min-width:768px) {
-        border-radius: 3px;
-        transition-duration: 300ms;
-        &:hover{
-          transition-duration: 200ms;
-          background-color: $primary;
-          color: black;
-          border: 6px solid $secondary;
+        height: auto;
+        margin: 0.75rem;
+        &:hover {
+          background-color: lighten($secondary, 8%);
+          box-shadow: $shadow-md;
+          transform: translateY(-1px);
+          &::after {
+            display: none;
+          }
         }
       }
     }
-    // dropdown items
+
+    // Dropdown items
     ul {
       display: none;
-      background-color: lightgrey;
-      @media(min-width: 768px){
+      background-color: $light;
+      border-radius: $radius-md;
+
+      @media(min-width: 768px) {
         z-index: -1;
         position: absolute;
         display: block;
-        left:0rem;
-        transition: transform .7s ease-in-out;
-        transform: translateY(-100%);
+        left: 0;
+        min-width: 14rem;
+        border: 1px solid $border;
+        box-shadow: $shadow-lg;
+        transition: transform $transition-base, opacity $transition-base;
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
       }
-      &.dropped{
+
+      &.dropped {
         display: block;
-        margin: 1.5rem 1rem 0 1rem ;
-        @media(min-width:768px){
-          margin: 2.3rem 0 0 0 ;
-          border-bottom: 2px solid $secondary;
-          transition: transform .7s ease-in-out;
-          transform: translateY(0%);
+        margin: 0 1rem;
+
+        @media(min-width:768px) {
+          margin: 0;
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
         }
-      li {
-          margin: .1rem;
-          color: $light;
-          @media(min-width:768px){
-            margin:0;
+
+        li {
+          a {
+            padding: 0.85rem 1.2rem;
+            font-size: 0.88rem;
+            justify-content: flex-start;
+            border-radius: $radius-sm;
+            transition: background-color $transition-fast, color $transition-fast;
+
+            @media(min-width: 768px) {
+              height: auto;
+              &:hover {
+                background-color: $primary;
+                color: $accent;
+                &::after {
+                  display: none;
+                }
+              }
+            }
           }
         }
       }
     }
   }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

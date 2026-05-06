@@ -1,39 +1,91 @@
 @import '../../styles/variables';
 
-.footer{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  gap: 1.5rem;
-  background: $tone url(../../public/background.webp)no-repeat center;
-  background-size: 25rem;
-  @media(min-width:768px) {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  a{
+.footer {
+  background-color: $secondary;
+  color: rgba(255, 255, 255, 0.9);
+
+  .content {
     display: flex;
-    align-items: center;
-    width: auto;
-    margin: .25rem 0;
-    padding: .7rem 1rem;
-    background-color: rgba(96, 96, 96, 0.873);
-    border-radius: 2px;
-    color: #fff;
-    word-break: break-word;
-    @media(min-width: 768px){
-      width: 25rem;
+    flex-direction: column;
+    gap: $space-lg;
+    padding: $space-xl $space-lg;
+    max-width: $container-xl;
+    margin: 0 auto;
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: $space-2xl $space-xl;
     }
   }
-  svg {
-    margin: .7rem;
-    font-size: 1.5rem;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    h3 {
+      font-size: 1.35rem;
+      color: white;
+      margin-bottom: $space-sm;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      padding: 0.65rem $space-sm;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: $radius-md;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+      word-break: break-word;
+      transition: background-color $transition-fast, transform $transition-fast;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.14);
+        transform: translateX(4px);
+      }
+
+      @media(min-width: 768px) {
+        max-width: 28rem;
+      }
+    }
+
+    svg {
+      flex-shrink: 0;
+      font-size: 1.15rem;
+      color: $accent-light;
+    }
   }
-  iframe {
-    box-shadow: 2px 2px 3px 3px rgba(113, 113, 113, 0.2);
-    @media(min-width:768px){
-      margin: .2rem 0;
-      width: 25rem;
+
+  .map {
+    iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: $radius-md;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+      @media(min-width: 768px) {
+        width: 380px;
+        height: 280px;
+      }
+    }
+  }
+
+  .bottom {
+    padding: $space-md $space-lg;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+
+    p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.02em;
     }
   }
 }

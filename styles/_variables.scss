@@ -1,6 +1,48 @@
-$primary: #f6e6de;
-$secondary: #494949;
-$light: #faf4f1;
-$tone: #EDCDBB;
-$background:#ffffffa0;
-$text: #1c1c1c;
+// =============================================
+// GRCounseling Design System Tokens
+// =============================================
+
+// --- Color Palette ---
+$primary: #F5EDE4;        // Warm cream background
+$secondary: #2C3E3D;      // Deep forest teal
+$light: #FAFAF7;          // Near-white warm
+$tone: #D4B9A0;           // Warm taupe
+$accent: #8B7355;         // Warm bronze
+$accent-light: #C4A882;   // Light bronze
+$surface: #FFFFFF;        // Pure white cards
+$text: #2D2D2D;           // Softened black
+$text-muted: #6B6B6B;     // Secondary text
+$success: #5B8A72;        // Sage green
+$border: #E8E0D8;         // Warm border
+$background: #ffffffd9;   // Overlay white
+
+// --- Spacing Scale ---
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2.5rem;
+$space-xl: 4rem;
+$space-2xl: 6rem;
+
+// --- Border Radius ---
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-full: 50%;
+
+// --- Shadows ---
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.14);
+
+// --- Transitions ---
+$transition-fast: 200ms ease;
+$transition-base: 350ms ease;
+$transition-slow: 600ms ease;
+
+// --- Container Widths ---
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1200px;
